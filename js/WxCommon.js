@@ -9,26 +9,28 @@ DATAForWeixin.debug = false; // 可设置为 true 以调试
 
 DATAForWeixin.appId = 'wxda940c25c8fce8c5',//账号的appid (服务号2)
 DATAForWeixin.openid = '',
-DATAForWeixin.sharecampaign = 'myway',//campaign名称
+DATAForWeixin.sharecampaign = 'qiji',//campaign名称
 
 //朋友圈分享设置
 DATAForWeixin.setTimeLine({
-    title: '听我说家乡话，猜我是哪里人！一起赢走会用方言对话的车。',
-    imgUrl: "http://verna.zihx.com/images/share.jpg",
-    link: 'http://verna.zihx.com',
-    desc: '猜猜我说的是哪里话，答对有惊喜！',
+    title: '站住！把你的声音交出来！',
+    imgUrl: "http://geely.nan3.net/images/share.jpg",
+    link: 'http://geely.nan3.net',
+    desc: '站住！把你的声音交出来！',
     success: function () {
     }
 });
 //分享朋友设置
 DATAForWeixin.setAppMessage({
-    title: '猜猜我说的是哪里话，答对有惊喜',
-    imgUrl: "http://verna.zihx.com/images/share.jpg",
-    desc: '听我说家乡话，猜我是哪里人！一起赢走会用方言对话的车。',
-    link: 'http://verna.zihx.com',
+    title: '站住！把你的声音交出来！',
+    imgUrl: "http://geely.nan3.net/images/share.jpg",
+    desc: '为民族企业的国际范儿打call！',
+    link: 'http://geely.nan3.net',
     success: function () {
     }
 });
+
+
 
 
 

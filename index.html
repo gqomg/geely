@@ -21,15 +21,31 @@
 </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
+ <script src="js/record.min.js"></script>
+ <script src="js/ya-jssdk.js?s=2"></script>
+<script  src="https://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<script src="http://nan3.zihx.com/resources/Scripts/weixinjssdk.js"></script>
+<script src="js/bd.js?s=2"></script>
+<script src="js/WxCommon.js"></script>
 <script>
-var isWx = true
+  var isWx;	  
+  var mode = 2;
+  var ua = window.navigator.userAgent.toLowerCase();
+	if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+		isWx=true;
+		mode=2;
+	}else{
+		isWx=false;
+		mode=1;
+	}
+		
 </script>
 </head>
 <body>
 <audio style="height:0; display:none;" id="music" src="bg.mp3" autoplay  preload="auto" ></audio>
 
 <div id="wrapper">
-<div id="index" class="page none">
+<div id="index" class="page ">
 <img src="images/logo.png" style="position:absolute; left:192px; top:59px;">
 <div class="vitch">
 <div class="indextit"></div>
@@ -39,22 +55,21 @@ var isWx = true
 <img src="images/clound1.png" class="clound3">
 </div>
 </div>
-<img src="images/btnindex.png" class="btnindex">
+<img src="images/btnindex.png" class="btnindex" onClick="$('#yulu').show();$('#index').hide()">
 <img src="images/btnrule.png" class="btnrule" onClick="$('#rulepop,.bgblack').show()">
 <div class="musicIcon"></div>
 </div>
 
 <div id="record" class="page none">
-<div class="btnback"></div>
+<div class="btnback" onClick="backyulu()"></div>
 <div class="musicIcon"></div>
 <p style="position:absolute; text-align:center; left:0; width:640px; text-align:center; color:#fff; font-size:30px; top:88px;">录制语录</p>
 <div class="gecipic none"></div>
 <div class="gecibox">
-<span>精彩语录一</span>
+<span id="yuluNum">精彩语录一</span>
 <p class="btnplus btngeci"></p>
     <div class="geci">
     <div style="padding-top:50px;">
-    每到关键时刻，<br>李书福总爱反向思考。<br>和当初并购沃尔沃一样，<br>当所有人认为吉利即将出局时，<br>他反倒认为机会来了。<br>在李书福看来，<br>欧宝是一个大块头，<br>PSA 不可能同时<br>兼顾两个大的合作项目，<br>整个管理层也不可能<br>有精力做好两块市场，<br>他大胆地预测：<br>“我相信PSA 会放弃宝腾项目。”
     </div>
     </div>
 </div>
@@ -82,17 +97,18 @@ var isWx = true
 <img src="images/i5.png" class="i_5">
 <img src="images/i6.png" class="i_6">
 </div>
-<span class="back"></span>
+<span class="back" onClick="backRecord()"></span>
 <span class="btnplay" id="bofang"></span>
-<span class="btnsub"></span>
+<span class="btnsub" onClick="subgc()"></span>
 </div>
 
-<div id="result" class="page">
+<div id="result" class="page ">
 <img src="images/logo.png" style="position:absolute; left:192px; top:59px;">
-<img src="images/share.jpg" id="headpic">
-<p id="headname">啊飒飒的</p>
-<div id="playbtn" class="play"></div>
+<img  id="headpic">
+<p id="headname"></p>
+<p id="randomNote" style="position:absolute; left:169px; top:677px; width:281px; color:#fff; font-size:24px; text-align:center;"></p>
 <span class="canote"></span>
+<div id="playbtn" class="play"></div>
 <a href="index.html" class="btnhome"></a>
 <span class="btnshare" onClick="sharepop()"></span>
 </div>
@@ -100,25 +116,24 @@ var isWx = true
 
 <div id="yulu" class="page none">
 <div class="yulubg">
-<ul class="yulu none">
-<li><span>①</span>每到关键时刻，李书福总爱反向思考。和当初并购沃尔沃一样，当所有人认为吉利即将出局时，他反倒认为机会来了。在李书福看来，欧宝是一个大块头，PSA 不可能同时兼顾两个大的合作项目，整个管理层也不可能有精力做好两块市场，他大胆地预测：“我相信PSA 会放弃宝腾项目。”
-<p class="cur none"></p>
-</li>
-<li><span>②</span>这一天，萨义德与李书福交流了很多，关于宝腾路特斯的只有寥寥数语，两位性格相近的企业家惺惺相惜，直到很晚才结束会谈。送走客人，李书福喃喃地问李东辉：“我是不是太草率了？”不等其他人开口，他露出标志性的笑容看着大家：“我觉得挺好，这是经营哲学——平衡。”
-<p class="cur none"></p>
-</li>
-</ul>
-<ul class="yulu none">
-<li><span>③</span>“既然是兄弟，我听哥哥的。”李书福肯定地回答。李书福的这句话打乱了在场所有人的思维，李东辉诧异地看着自己的老板，尽管有翻译，但懂中文的萨义德女儿在场，一切都无法遮掩，谈判就这样在李书福的这句话下彻底反转，一场顶级谈判变成了一场“家宴”。
-<p class="cur none"></p>
-</li>
-<li><span>④</span>随后，李书福又把李东辉叫到办公室：“我们充分体会了保持DRB 对宝腾的控股权，是体现这家马来西亚民族企业的重要象征。路特斯股权上我们做出重大让步，就这样定了吧。但是宝腾可否在股权上实现49.9％？这样既保全了宝腾的民族企业性质，又便于我们未来的管理。关键是把宝腾做成功，其他都是次要的。”
-<p class="cur none"></p>
-</li>
-</ul>
 <ul class="yulu ">
-<li><span>⑤</span>“世界汽车工业最后发展方向就是模块化生产。就像小孩搭积木，同样的零部件通过不同的装配与设计，最后生产出不一样的汽车产品。这是汽车行业的一个规律，到那时，汽车制造就相当于电脑DIY 一样，大家都可以自己组装，而且这一天不会很遥远。”李书福事后解释称。
-<p class="cur "></p>
+<li onclick="checkYu(0,this)"><span>①</span>每到关键时刻，李书福总爱反向思考。和当初并购沃尔沃一样，当所有人认为吉利即将出局时，他反倒认为机会来了。<p class="cur none"></p>
+</li>
+<li onclick="checkYu(1,this)"><span>②</span>持有更多股份意味着对方愿意承担更大的投入与风险,这对我们而言是公平的,也说明合作伙伴不是要抛弃这家企业,而是真正想和吉利一同将宝腾路特斯做大,我们要成全合作伙伴。
+<p class="cur none"></p>
+</li>
+</ul>
+<ul class="yulu none">
+<li onclick="checkYu(2,this)"><span>③</span>这或许就是伟大企业家身上的特质：没有章法可循，没有事先思考，灵机一动的判断总会将每一个商业行为升华。
+<p class="cur none"></p>
+</li>
+<li onclick="checkYu(3,this)"><span>④</span>中国的本土职业经理人不同，他们每天都在生命线上挣扎，并逐渐摸索出一套应对跨国车企竞争的方法。  
+<p class="cur none"></p>
+</li>
+</ul>
+<ul class="yulu none">
+<li onclick="checkYu(4,this)"><span>⑤</span>世界汽车工业最后发展方向就是模块化生产。就像小孩搭积木，同样的零部件通过不同的装配与设计，最后生产出不一样的汽车产品。这是汽车行业的一个规律，到那时，汽车制造就相当于电脑DIY一样，大家都可以自己组装，而且这一天不会很遥远。
+<p class="cur none"></p>
 </li>
 </ul>
 <div class="yuluarr"></div>
@@ -138,9 +153,85 @@ var isWx = true
 <img src="images/sharepop.png" class="sharepop" style="position:absolute; left:0; top:0; z-index:10; display:none;">
 </div>
 
-
+ <div id="sharepopya" class="none" style="background:url(images/ya_sharepop.png) no-repeat 0 bottom; overflow:hidden; position:fixed; left:0; bottom:0; width:640px; height:1200px; z-index:10;">
+	<a href="javascript:void(0)" onClick="setShareTop('weixinGroup')" style="position:absolute; display:block; width:121px; height:128px; bottom:140px; left:190px;"></a>
+	<a href="javascript:void(0)" onClick="setShareTop('weixin')" style="position:absolute; display:block; width:121px; height:128px; bottom:140px; left:338px;"></a>
+	<span style="position:absolute; display:block; width:640px; height:58px; left:0; bottom:0;" onClick="$('#sharepopya').hide()"></span>
+</div>
 
 <script>
+(function(a){a.fn.touchwipe=function(c){var b={min_move_x:20,min_move_y:20,wipeLeft:function(){},wipeRight:function(){},wipeUp:function(){},wipeDown:function(){},wipe:function(){},wipehold:function(){},preventDefaultEvents:true};if(c){a.extend(b,c)}this.each(function(){var h;var g;var j=false;var i=false;var e;function m(){this.removeEventListener("touchmove",d);h=null;j=false;clearTimeout(e)}function d(q){if(b.preventDefaultEvents){q.preventDefault()}if(j){var n=q.touches[0].pageX;var r=q.touches[0].pageY;var p=h-n;var o=g-r;if(Math.abs(p)>=b.min_move_x){m();if(p>0){b.wipeLeft()}else{b.wipeRight()}}else{if(Math.abs(o)>=b.min_move_y){m();if(o>0){b.wipeUp()}else{b.wipeDown()}}}}}function k(){clearTimeout(e);if(!i&&j){b.wipe()}i=false}function l(){i=true;b.wipehold()}function f(n){if(n.touches.length==1){h=n.touches[0].pageX;g=n.touches[0].pageY;j=true;this.addEventListener("touchmove",d,false);e=setTimeout(l,750)}}if("ontouchstart" in document.documentElement){this.addEventListener("touchstart",f,false);this.addEventListener("touchend",k,false)}});return this};})(jQuery);
+
+window.addEventListener('touchmove', function(e){e.preventDefault()}, { passive: false });
+
+
+var userInfo = api.getUserInfo(mode); 
+$('#headpic').attr('src',userInfo.userimg);
+$('#headname').text(userInfo.username);
+var yl_id = 0, yl_lock=false;
+$(".yulubg").touchwipe({
+		wipeUp:function(){
+			if(yl_id == 2 || yl_lock){
+				return	
+			}
+			yl_lock = true
+			yl_id++
+			$('.yulu').eq(yl_id).fadeIn(function(){
+				yl_lock = false
+				}).siblings('.yulu').fadeOut()
+		},
+		wipeDown:function(){
+			if(yl_id == 0 || yl_lock){
+				return	
+			}
+			yl_lock = true
+			yl_id--
+			$('.yulu').eq(yl_id).fadeIn(function(){
+				yl_lock = false
+				}).siblings('.yulu').fadeOut()
+		}
+	})
+var geciArr=['每到关键时刻，<br>李书福总爱反向思考。<br>和当初并购沃尔沃一样，<br>当所有人认为吉利即将出局时，<br>他反倒认为机会来了。',
+'持有更多股份意味着<br>对方愿意承担更大的投入与风险,<br>这对我们而言是公平的,<br>也说明合作伙伴<br>不是要抛弃这家企业,<br>而是真正想和吉利<br>一同将宝腾路特斯做大,<br>我们要成全合作伙伴。',
+'这或许就是伟大企业家<br>身上的特质：<br>没有章法可循，<br>没有事先思考，<br>灵机一动的判断<br>总会将每一个商业行为升华。',
+'中国的本土职业经理人不同，<br>他们每天都在生命线上挣扎，<br>并逐渐摸索出<br>一套应对跨国车企竞争的方法。',
+'世界汽车工业最后发展方向<br>就是模块化生产。<br>就像小孩搭积木，<br>同样的零部件<br>通过不同的装配与设计，<br>最后生产出不一样的汽车产品。<br>这是汽车行业的一个规律，<br>到那时，<br>汽车制造就相当于电脑DIY一样，<br>大家都可以自己组装，<br>而且这一天不会很遥远。'
+]
+var checklock=false;
+function checkYu(i,obj){
+	if(checklock){
+		return
+	}
+	checklock=true
+	$(obj).find('.cur').show()
+	$('.btngeci').removeClass('btnadd').addClass('btnplus')
+	$('.geci').css('height',0)
+	$('.geci div').html(geciArr[i])
+	if(i==0){
+		$('#yuluNum').html('精彩语录一')	
+	}else if(i==1){
+		$('#yuluNum').html('精彩语录二')
+	}else if(i==2){
+		$('#yuluNum').html('精彩语录三')
+	}else if(i==3){
+		$('#yuluNum').html('精彩语录四')
+	}else if(i==4){
+		$('#yuluNum').html('精彩语录五')
+	}
+	$('.gecipic').hide();
+	setTimeout(function(){
+		$('#yulu').hide();
+		$('#record').show();
+		$('.geci').animate({height:532},1000)
+	},500)
+}	
+function backyulu(){
+	$('.yulu').find('.cur').hide();
+	$('#yulu').show()
+	$('#record').hide();
+	checklock=false;
+}
+
 var hh = $(window).height()
 $('.page,.bgblack').height(hh)
 $('.vitch').css('top',(hh-900)/2)
@@ -160,6 +251,254 @@ $('.btngeci').click(function(){
 		}
 })
 
+function startRecord(){
+	if(isWx){
+		wx.startRecord();	
+	}else{
+		ya.recorder.startRecord(function () {});	
+	}
+}
+function stopRecord(cb){
+	if(isWx){
+		wx.stopRecord({
+			success:function (res) {
+				cb(res)
+			}
+		})	
+	}else{
+		ya.recorder.pauseRecord(function (localId) {
+			cb(localId)
+		});	
+	}
+}
+
+var timeNum=0
+var inter=null;
+var localId;
+$('.btnrecord').bind('touchstart',function(){
+	$('.btnscale').addClass('active')
+	startRecord()
+	inter = setInterval(function(){
+		if(timeNum == 60){
+			stopRecord(function(res){
+				if(isWx){
+					localId=res.localId
+					}else{
+					localId=res;
+					}
+				$('#record').hide()
+				$('#success').show()	
+			})
+			clearInterval(inter)
+			}else{
+			timeNum++;
+			TweenMax.to($('.progress'),1,{width:timeNum * 390/60,ease:'linear'})
+			}
+		var numtxt = timeNum<10 ? '0'+timeNum : timeNum
+		$('#timeNum').text(numtxt)	
+	},100)	
+}).bind('touchend',function(){
+	$('.btnscale').removeClass('active')
+	clearInterval(inter)
+	if(timeNum<=2){
+		localId='';
+		stopRecord(function(){
+			$('.bgblack,.alertpop').show()
+			timeNum=0
+			$('#timeNum').text('00')
+			$('.progress').width(0)
+		})
+	}else{
+		stopRecord(function(res){
+			if(isWx){
+				localId=res.localId
+				}else{
+				localId=res;
+				}
+			clearInterval(inter)
+			timeNum=0
+			$('#timeNum').text('00')
+			$('.progress').width(0)	
+			$('#record').hide()
+			$('#success').show()	
+		})
+	}	
+})
+
+function playRecord(){
+	if(isWx){
+		wx.playVoice({
+			localId: localId
+		});
+	}else{
+		ya.recorder.playVoice(function (localId) {});
+	}
+}
+function pauseRecord(){
+	if(isWx){
+		wx.stopVoice({
+			localId: localId
+		});
+	}else{
+		ya.recorder.stopRecord(function (localId) {});
+	}	
+}
+function endRecord(cb){
+	if(isWx){
+		wx.onVoicePlayEnd({
+			success: function (res) {
+				cb()
+			}
+		});
+	}else{
+		ya.recorder.bind({
+			 onPlayEnd: function () {
+				cb()
+			}
+		})
+	}
+}	
+	
+$('#bofang').click(function(){
+	if($(this).hasClass('btnpause')){
+		$(this).removeClass('btnpause').addClass('btnplay')	
+		pauseRecord()
+	}else{
+		//播放
+		var isbgm=false
+		if(playing){
+			myAudio.pause();
+			$('.musicIcon').addClass('close')
+			playing = !playing;
+			isbgm=true
+		}
+		playRecord()
+		endRecord(function(){
+			if(isbgm){
+				myAudio.play();
+				$('.musicIcon').removeClass('close')
+				playing = !playing;
+			}
+		})
+		$(this).removeClass('btnplay').addClass('btnpause')
+		}
+})
+
+function backRecord(){
+	$('#success').hide()
+	$('#record').show();
+	
+}	
+var worknote = ['为民族企业的国际范儿打call！','大视野有大智慧，听听我最喜欢的金句！','为远见鼓掌，为情怀发声']
+
+var dataId;
+function subgc(){
+	if(isWx){
+		 wx.uploadVoice({
+            localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+            isShowProgressTips: 1,// 默认为1，显示进度提示
+            success: function (res) {
+                var data = api.savevoice_wx(res.serverId);
+               	if(data.code==1){	
+					$('#result').show()
+					$('#success').hide()
+					$('#randomNote').text(worknote[Math.floor(Math.random()*3)])
+					DATAForWeixin.setTimeLine({
+						title: '站住！把你的声音交出来！',
+						imgUrl: "http://geely.nan3.net/images/share.jpg",
+						link: 'http://geely.nan3.net/page.html?id='+data.Id,
+						desc: '站住！把你的声音交出来！',
+						success: function () {
+						}
+					});
+					//分享朋友设置
+					DATAForWeixin.setAppMessage({
+						title: '站住！把你的声音交出来！',
+						imgUrl: "http://geely.nan3.net/images/share.jpg",
+						desc: '为民族企业的国际范儿打call！',
+						link: 'http://geely.nan3.net/page.html?id='+data.Id,
+						success: function () {
+						}
+					});
+				}
+            }
+        });	
+	}else{
+		ya.recorder.uploadVoice(localId, function (res) {
+			var obj = JSON.parse(res);
+			var jsonData = api.savevoice_ya(obj.data.url);
+			if(jsonData.code==1){
+				$('#randomNote').text(worknote[Math.floor(Math.random()*3)])
+				$('#result').show()
+				$('#success').hide()
+				dataId=jsonData.Id
+			}
+		})
+	}
+}
+
+
+function setShareTop(obj) {
+            var shareChannel = {
+                'weixin': '微信',
+                'weixinGroup': '微信朋友圈'
+            };
+            var type = 'link';
+            var dataUrl = '';
+			
+			var stitle,sdesc,slink;
+			if(obj == 'weixin'){
+				stitle = '站住！把你的声音交出来！';
+				sdesc = '为民族企业的国际范儿打call！';
+				slink='http://geely.nan3.net/page.html?id='+dataId
+				}
+			if(obj == 'weixinGroup'){
+				stitle = '站住！把你的声音交出来！';
+				sdesc =  '站住！把你的声音交出来！';
+				slink='http://geely.nan3.net/page.html?id='+dataId
+				}
+            ya.multiShare({
+                channel: obj,
+                title: stitle,
+                desc: sdesc,
+                link: slink,
+                imgUrl: 'http://geely.nan3.net/images/share.jpg',
+                type: type,
+                dataUrl: dataUrl
+            }, function (res) {
+                // 成功
+                if (res.ret == 0) {
+					_hmt.push(['_trackEvent', 'ximalaya', 'share', obj, 1]);
+                    alert(JSON.stringify('分享到【' + channel + '】成功！'));
+                } else {
+                    alert(res.msg);
+                }
+            });
+
+
+ }	  
+
+
+
+
+$('#playbtn').click(function(){
+	if($(this).hasClass('play')){
+		$(this).removeClass('play').addClass('pause')	
+	}else{
+		$(this).removeClass('pause').addClass('play')
+		}
+})	
+
+function sharepop(){
+	if(isWx){
+		$('.bgblack,.sharepop').show().on('click',function(){
+			$('.bgblack,.sharepop').hide()
+		});
+		}else{
+		$('#sharepopya').show();
+	}
+	
+}
 
 var myAudio=document.getElementById('music'), playing = true;
 $(".musicIcon").click(function(){
@@ -173,62 +512,18 @@ $(".musicIcon").click(function(){
 		$(this).removeClass('close')
     }
 })
-
-	$(window).bind('touchmove scroll',function(e){
-		e.preventDefault();
-		return false;
-	})
-
-
-var timeNum=0
-var inter=null;
-$('.btnrecord').bind('touchstart',function(){
-	$('.btnscale').addClass('active')
-	inter = setInterval(function(){
-		if(timeNum == 60){
-			clearInterval(inter)
-			}else{
-			timeNum++;
-			TweenMax.to($('.progress'),1,{width:timeNum * 390/60,ease:'linear'})
-			}
-		var numtxt = timeNum<10 ? '0'+timeNum : timeNum
-		$('#timeNum').text(numtxt)	
-		
-	},100)	
-}).bind('touchend',function(){
-	$('.btnscale').removeClass('active')
-	clearInterval(inter)
-	if(timeNum<=2){
-		$('.bgblack,.alertpop').show()
-		timeNum=0
-		$('#timeNum').text('00')
-		$('.progress').width(0)
-	}else{
-		
-	}	
-})
-	
-	
-$('#bofang').click(function(){
-	if($(this).hasClass('btnpause')){
-		$(this).removeClass('btnpause').addClass('btnplay')	
-	}else{
-		$(this).removeClass('btnplay').addClass('btnpause')
-		}
-})	
-$('#playbtn').click(function(){
-	if($(this).hasClass('play')){
-		$(this).removeClass('play').addClass('pause')	
-	}else{
-		$(this).removeClass('pause').addClass('play')
-		}
-})	
-
-function sharepop(){
-	$('.bgblack,.sharepop').show().on('click',function(){
-		$('.bgblack,.sharepop').hide()
-		});
-}
+if(isWx){
+	var myAudio=document.getElementById('music')
+document.addEventListener('DOMContentLoaded', function () {
+	function audioAutoPlay() {
+		myAudio.play();
+		document.addEventListener("WeixinJSBridgeReady", function () {
+			myAudio.play();
+		}, false);
+	}
+	audioAutoPlay();
+});
+	}
 </script>
 <script>
 var _hmt = _hmt || [];

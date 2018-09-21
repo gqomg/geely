@@ -4,6 +4,7 @@
 .clearfix:after {visibility: hidden;display:block;font-size:0;content:"";clear:both;height: 0;}
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
+body{touch-action: none;}
 #wrapper{ margin:0 auto; width:640px; position:relative;}
 #index,#record,#success{ background:url(../images/indexbg.jpg) no-repeat 0 0;}
 .page{ position:absolute; left:0; width:640px; top:0;}
@@ -11,16 +12,25 @@
 .indextit{ position:absolute; width:538px; height:238px; left:57px; top:51px; background:url(../images/index_title.png) no-repeat 0 0;}
 .indexpic{ position:absolute; width:640px; height:606px; top:229px; left:0; background:url(../images/indexpic.png) no-repeat 0 0;}
 .clound1,.clound2,.clound3{ position:absolute;}
-.clound1{ left:57px; top:193px;}
-.clound2{ left:80px; top:75px;}
-.clound3{ left:471px; top:63px;}
+.clound1{ left:57px; top:193px; -webkit-animation: fd 2.2s infinite linear;}
+.clound2{ left:80px; top:75px; -webkit-animation: fd 2.2s infinite linear;  -webkit-animation-delay:0.2s;}
+.clound3{ left:471px; top:63px; -webkit-animation: fd 2.2s infinite linear;  -webkit-animation-delay:0.4s;}
+
+@-webkit-keyframes fd {
+	0%   {-webkit-transform:translateY(0);}
+	25%  {-webkit-transform:translateY(-6px);}
+	50%  {-webkit-transform:translateY(0px);}
+	75%  {-webkit-transform:translateY(6px);}
+	100%  {-webkit-transform:translateY(0px);}
+}
+
 .btnindex{ position:absolute; left:229px; bottom:40px;}
 .btnrule{ position:absolute; left:544px; bottom:41px;}
 
 #yulu{ background:url(../images/yulu.jpg) no-repeat 0 center;}
 .yulubg{ position:absolute; width:640px; height:834px; left:0; background:url(../images/yulubg.png) no-repeat 0 0;}
 .yulu{ position:absolute; height:516px; width:380px; left:144px; top:141px; list-style-type:none;}
-.yulu li{ height:258px; position:relative; color:#187ff7; line-height:1.5; font-size:20px;}
+.yulu li{ height:258px; position:relative; color:#187ff7; line-height:1.6; font-size:22px;}
 .yulu li span{ position:absolute; left:-35px; top:-8px; font-size:30px;}
 .yulu li .cur{ position:absolute; width:546px; height:260px; background:url(../images/cur.png) no-repeat 0 0; left:-84px; top:-15px;}
 .yuluarr{ position:absolute; width:107px; height:99px; left:270px; top:680px; background:url(../images/yuluarr.png) no-repeat 0 0; }
@@ -36,7 +46,7 @@
 .gecibox p{ position:absolute; width:34px; height:36px; right:16px; top:13px;}
 .btnadd{ background:url(../images/btnadd.png) no-repeat 0 0;}
 .btnplus{ background:url(../images/btnplus.png) no-repeat 0 0;}
-.geci{ position:absolute; width:462px; height:532px; overflow:hidden; top:49px; text-align:center; line-height:1.4; font-size:22px; left:45px; background:url(../images/gecibg.png) no-repeat 0 0;}
+.geci{ position:absolute; width:462px; height:532px; overflow:hidden; top:49px; text-align:center; line-height:1.8; font-size:22px; left:45px; background:url(../images/gecibg.png) no-repeat 0 0;}
 .gecipic{ position:absolute; width:640px; left:0; height:498px; background:url(../images/gecipic.png) no-repeat 0 0; top:269px;}
 .progressbar{ position:absolute; width:390px; height:7px; border-radius:3px; background-color:#fff; left:125px; bottom:208px;}
 .progress{ width:0px; position:relative; height:7px; border-radius:3px; background-color:#187ff7;}
