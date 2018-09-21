@@ -1,0 +1,103 @@
+*{ margin:0; padding:0;outline:0 none !important; blr:expression(this.onFocus=this.blur());}
+.none{ display:none;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix:after {visibility: hidden;display:block;font-size:0;content:"";clear:both;height: 0;}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+#wrapper{ margin:0 auto; width:640px; position:relative;}
+#index,#record,#success{ background:url(../images/indexbg.jpg) no-repeat 0 0;}
+.page{ position:absolute; left:0; width:640px; top:0;}
+.vitch{ position:absolute; left:0; width:640px; height:900px;}
+.indextit{ position:absolute; width:538px; height:238px; left:57px; top:51px; background:url(../images/index_title.png) no-repeat 0 0;}
+.indexpic{ position:absolute; width:640px; height:606px; top:229px; left:0; background:url(../images/indexpic.png) no-repeat 0 0;}
+.clound1,.clound2,.clound3{ position:absolute;}
+.clound1{ left:57px; top:193px;}
+.clound2{ left:80px; top:75px;}
+.clound3{ left:471px; top:63px;}
+.btnindex{ position:absolute; left:229px; bottom:40px;}
+.btnrule{ position:absolute; left:544px; bottom:41px;}
+
+#yulu{ background:url(../images/yulu.jpg) no-repeat 0 center;}
+.yulubg{ position:absolute; width:640px; height:834px; left:0; background:url(../images/yulubg.png) no-repeat 0 0;}
+.yulu{ position:absolute; height:516px; width:380px; left:144px; top:141px; list-style-type:none;}
+.yulu li{ height:258px; position:relative; color:#187ff7; line-height:1.5; font-size:20px;}
+.yulu li span{ position:absolute; left:-35px; top:-8px; font-size:30px;}
+.yulu li .cur{ position:absolute; width:546px; height:260px; background:url(../images/cur.png) no-repeat 0 0; left:-84px; top:-15px;}
+.yuluarr{ position:absolute; width:107px; height:99px; left:270px; top:680px; background:url(../images/yuluarr.png) no-repeat 0 0; }
+
+.bgblack{ position:absolute; width:640px; left:0; top:0; z-index:9; background-color:#000; opacity:0.6;}
+#rulepop{ width:519px; height:624px; background:url(../images/rulepop.png) no-repeat 0 0; position:absolute; z-index:10; left:61px;}
+
+.musicIcon{ position:absolute; width:49px; height:49px; background:url(../images/micon.png) no-repeat 0 0; right:36px; top:46px;}
+.musicIcon.close{ background-position:0 bottom;}
+
+.btnback{ position:absolute; width:48px; height:48px; background:url(../images/btnback.png) no-repeat 0 0; left:67px; top:46px;}
+.gecibox{ position:absolute; width:552px; height:61px; background:url(../images/gecibox.png) no-repeat 0 0; left:44px; top:134px; text-align:center; line-height:61px; font-size:24px; color:#187ff7;}
+.gecibox p{ position:absolute; width:34px; height:36px; right:16px; top:13px;}
+.btnadd{ background:url(../images/btnadd.png) no-repeat 0 0;}
+.btnplus{ background:url(../images/btnplus.png) no-repeat 0 0;}
+.geci{ position:absolute; width:462px; height:532px; overflow:hidden; top:49px; text-align:center; line-height:1.4; font-size:22px; left:45px; background:url(../images/gecibg.png) no-repeat 0 0;}
+.gecipic{ position:absolute; width:640px; left:0; height:498px; background:url(../images/gecipic.png) no-repeat 0 0; top:269px;}
+.progressbar{ position:absolute; width:390px; height:7px; border-radius:3px; background-color:#fff; left:125px; bottom:208px;}
+.progress{ width:0px; position:relative; height:7px; border-radius:3px; background-color:#187ff7;}
+.progress span{ position:absolute; right:-9px; top:-3px; width:15px; height:15px; background:url(../images/dot.png) no-repeat 0 0;}
+.progressbar div{ position:absolute; color:#fff; font-size:18px; top:-8px; width:60px;}
+.btnrecord{ position:absolute; width:105px; height:138px; background:url(../images/changan.png) no-repeat 0 0; left:267px; bottom:31px;}
+.btnscale{ position:absolute; width:77px; height:77px; border-radius:50%; left:280px; bottom:79px; background:#fff; opacity:0.36;}
+
+.btnscale.active{ -webkit-transition:all 1s; -webkit-transform:scale(1.8);}
+
+.alertpop{ position:absolute; width:361px; height:144px; background:url(../images/alert.png) no-repeat 0 0; left:50%; margin-left:-180px;  z-index:10; display:none;}
+.alertpop span{ position:absolute; width:361px; height:53px; left:0; bottom:0;}
+@-webkit-keyframes breathe {
+    0% {  -webkit-transform:scale(1) }
+    100% { -webkit-transform:scale(1.8)}
+}
+
+.successpic{ background:url(../images/successpic.png) no-repeat 0 0; height:721px; left:0; width:640px; position:absolute; top:102px;}
+.back,.btnplay,.btnsub,.btnpause{ position:absolute; display:block; bottom:70px; width:100px; height:122px;}
+.back{ left:90px; background:url(../images/btnaction.png) no-repeat 0 0;}
+.btnplay{ left:277px; background:url(../images/btnaction.png) no-repeat -187px 0;}
+.btnsub{left:455px; background:url(../images/btnaction.png) no-repeat right 0;}
+.btnpause{left:277px; background:url(../images/btnaction2.png) no-repeat -187px 0;}
+
+.i_1,.i_2,.i_3,.i_4,.i_5,.i_6{ position:absolute; display:block;}
+.i_1{ left:311px; top:425px;}
+.i_2{ left:188px; top:447px;}
+.i_3{ left:117px; top:464px;}
+.i_4{ left:246px; top:474px;}
+.i_5{ left:223px; top:570px;}
+.i_6{ left:288px; top:525px;}
+
+#result{background:url(../images/result.jpg) no-repeat 0 0;}
+.canote{ position:absolute; width:227px; height:22px; background:url(../images/canote.png) no-repeat 0 0; left:190px; top:779px;}
+
+#playbtn{ position:absolute; width:79px; height:79px; left:279px; top:577px; }
+.play{background:url(../images/btnaction.png) no-repeat -197px -7px;}
+.pause{background:url(../images/btnaction2.png) no-repeat -197px -7px;}
+
+.btnhome{ position:absolute; display:block; width:89px; height:114px; left:146px; top:855px; background:url(../images/btns.png) no-repeat 0 0;}
+.btnshare{ position:absolute; display:block; width:86px; height:114px; left:405px; top:855px; background:url(../images/btns.png) no-repeat right 0;}
+
+
+
+.btnhome2{ position:absolute; display:block; width:125px; height:114px; left:258px; top:855px; background:url(../images/btnhome2.png) no-repeat 0 0;}
+
+#headpic{ position:absolute; width:66px; height:66px; border:6px solid #265ccb; border-radius:50%; left:290px; top:205px;}
+#headname{ position:absolute; width:122px; top:290px; left:268px; color:#265ccb; font-size:20px; text-align:center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

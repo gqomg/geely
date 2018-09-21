@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>为《汽车密码》发声！</title>
+<link rel="stylesheet" href="css/style.css">
+<script>
+		var phoneWidth =  parseInt(window.screen.width);
+		var phoneScale = phoneWidth/640;
+		var ua = navigator.userAgent;
+		if (/Android (\d+\.\d+)/.test(ua)){
+			var version = parseFloat(RegExp.$1);
+			if(version>2.3){
+				document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+			}else{
+				document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+			}
+		} else {
+			document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+		}
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script>
+var isWx = true
+</script>
+</head>
+<body>
+
+<div id="wrapper">
+
+
+<div id="result" class="page">
+<img src="images/logo.png" style="position:absolute; left:192px; top:59px;">
+<img src="images/share.jpg" id="headpic">
+<p id="headname">啊飒飒的</p>
+<div id="playbtn" class="play"></div>
+<a href="index.html" class="btnhome2"></a>
+</div>
+
+</div>
+
+
+
+<script>
+var hh = $(window).height()
+$('.page,.bgblack').height(hh)
+$('.vitch').css('top',(hh-900)/2)
+$('#rulepop').css('top',(hh-624)/2)
+$('.yulubg').css('top',(hh-834)/2)
+$('.alertpop').css('top',(hh-144)/2)
+
+
+
+
+	$(window).bind('touchmove scroll',function(e){
+		e.preventDefault();
+		return false;
+	})
+
+
+$('#playbtn').click(function(){
+	if($(this).hasClass('play')){
+		$(this).removeClass('play').addClass('pause')	
+	}else{
+		$(this).removeClass('pause').addClass('play')
+		}
+})	
+
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?605e06093f1ca31a337515854f9ce37b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

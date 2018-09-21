@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>为《汽车密码》发声！</title>
+<link rel="stylesheet" href="css/style.css">
+<script>
+		var phoneWidth =  parseInt(window.screen.width);
+		var phoneScale = phoneWidth/640;
+		var ua = navigator.userAgent;
+		if (/Android (\d+\.\d+)/.test(ua)){
+			var version = parseFloat(RegExp.$1);
+			if(version>2.3){
+				document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+			}else{
+				document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+			}
+		} else {
+			document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+		}
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script>
+var isWx = true
+</script>
+</head>
+<body>
+<audio style="height:0; display:none;" id="music" src="bg.mp3" autoplay  preload="auto" ></audio>
+
+<div id="wrapper">
+<div id="index" class="page none">
+<img src="images/logo.png" style="position:absolute; left:192px; top:59px;">
+<div class="vitch">
+<div class="indextit"></div>
+<div class="indexpic">
+<img src="images/clound3.png" class="clound1">
+<img src="images/clound2.png" class="clound2">
+<img src="images/clound1.png" class="clound3">
+</div>
+</div>
+<img src="images/btnindex.png" class="btnindex">
+<img src="images/btnrule.png" class="btnrule" onClick="$('#rulepop,.bgblack').show()">
+<div class="musicIcon"></div>
+</div>
+
+<div id="record" class="page none">
+<div class="btnback"></div>
+<div class="musicIcon"></div>
+<p style="position:absolute; text-align:center; left:0; width:640px; text-align:center; color:#fff; font-size:30px; top:88px;">录制语录</p>
+<div class="gecipic none"></div>
+<div class="gecibox">
+<span>精彩语录一</span>
+<p class="btnplus btngeci"></p>
+    <div class="geci">
+    <div style="padding-top:50px;">
+    每到关键时刻，<br>李书福总爱反向思考。<br>和当初并购沃尔沃一样，<br>当所有人认为吉利即将出局时，<br>他反倒认为机会来了。<br>在李书福看来，<br>欧宝是一个大块头，<br>PSA 不可能同时<br>兼顾两个大的合作项目，<br>整个管理层也不可能<br>有精力做好两块市场，<br>他大胆地预测：<br>“我相信PSA 会放弃宝腾项目。”
+    </div>
+    </div>
+</div>
+
+
+
+<div class="progressbar">
+<div style="left:-80px;">00:<span id="timeNum">00</span></div>
+<p class="progress"><span></span></p>
+<div style="right:-80px;">00:60</div>
+</div>
+
+<div class="btnscale"></div>
+<div class="btnrecord"></div>
+
+</div>
+
+<div id="success" class="page none">
+<div class="musicIcon"></div>
+<div class="successpic">
+<img src="images/i1.png" class="i_1">
+<img src="images/i2.png" class="i_2">
+<img src="images/i3.png" class="i_3">
+<img src="images/i4.png" class="i_4">
+<img src="images/i5.png" class="i_5">
+<img src="images/i6.png" class="i_6">
+</div>
+<span class="back"></span>
+<span class="btnplay" id="bofang"></span>
+<span class="btnsub"></span>
+</div>
+
+<div id="result" class="page">
+<img src="images/logo.png" style="position:absolute; left:192px; top:59px;">
+<img src="images/share.jpg" id="headpic">
+<p id="headname">啊飒飒的</p>
+<div id="playbtn" class="play"></div>
+<span class="canote"></span>
+<a href="index.html" class="btnhome"></a>
+<span class="btnshare" onClick="sharepop()"></span>
+</div>
+
+
+<div id="yulu" class="page none">
+<div class="yulubg">
+<ul class="yulu none">
+<li><span>①</span>每到关键时刻，李书福总爱反向思考。和当初并购沃尔沃一样，当所有人认为吉利即将出局时，他反倒认为机会来了。在李书福看来，欧宝是一个大块头，PSA 不可能同时兼顾两个大的合作项目，整个管理层也不可能有精力做好两块市场，他大胆地预测：“我相信PSA 会放弃宝腾项目。”
+<p class="cur none"></p>
+</li>
+<li><span>②</span>这一天，萨义德与李书福交流了很多，关于宝腾路特斯的只有寥寥数语，两位性格相近的企业家惺惺相惜，直到很晚才结束会谈。送走客人，李书福喃喃地问李东辉：“我是不是太草率了？”不等其他人开口，他露出标志性的笑容看着大家：“我觉得挺好，这是经营哲学——平衡。”
+<p class="cur none"></p>
+</li>
+</ul>
+<ul class="yulu none">
+<li><span>③</span>“既然是兄弟，我听哥哥的。”李书福肯定地回答。李书福的这句话打乱了在场所有人的思维，李东辉诧异地看着自己的老板，尽管有翻译，但懂中文的萨义德女儿在场，一切都无法遮掩，谈判就这样在李书福的这句话下彻底反转，一场顶级谈判变成了一场“家宴”。
+<p class="cur none"></p>
+</li>
+<li><span>④</span>随后，李书福又把李东辉叫到办公室：“我们充分体会了保持DRB 对宝腾的控股权，是体现这家马来西亚民族企业的重要象征。路特斯股权上我们做出重大让步，就这样定了吧。但是宝腾可否在股权上实现49.9％？这样既保全了宝腾的民族企业性质，又便于我们未来的管理。关键是把宝腾做成功，其他都是次要的。”
+<p class="cur none"></p>
+</li>
+</ul>
+<ul class="yulu ">
+<li><span>⑤</span>“世界汽车工业最后发展方向就是模块化生产。就像小孩搭积木，同样的零部件通过不同的装配与设计，最后生产出不一样的汽车产品。这是汽车行业的一个规律，到那时，汽车制造就相当于电脑DIY 一样，大家都可以自己组装，而且这一天不会很遥远。”李书福事后解释称。
+<p class="cur "></p>
+</li>
+</ul>
+<div class="yuluarr"></div>
+</div>
+</div>
+
+
+
+<div class="bgblack" style="display:none;"></div>
+<div id="rulepop" style="display:none;">
+<span onClick="$('#rulepop,.bgblack').hide()" style="position:absolute; display:block; width:68px; height:68px; right:0; top:0;"></span>
+<span onClick="$('#rulepop,.bgblack').hide()" style="position:absolute; display:block; width:130px; height:62px; left:195px; top:500px;"></span>
+</div>
+<div class="alertpop">
+<span onClick="$('.bgblack,.alertpop').hide()"></span>
+</div>
+<img src="images/sharepop.png" class="sharepop" style="position:absolute; left:0; top:0; z-index:10; display:none;">
+</div>
+
+
+
+<script>
+var hh = $(window).height()
+$('.page,.bgblack').height(hh)
+$('.vitch').css('top',(hh-900)/2)
+$('#rulepop').css('top',(hh-624)/2)
+$('.yulubg').css('top',(hh-834)/2)
+$('.alertpop').css('top',(hh-144)/2)
+
+$('.btngeci').click(function(){
+	if($(this).hasClass('btnadd')){
+		$('.gecipic').fadeOut(1000)
+		$(this).removeClass('btnadd').addClass('btnplus')
+		$('.geci').animate({height:532},1000)
+	}else{
+		$('.gecipic').fadeIn(1000)
+		$(this).removeClass('btnplus').addClass('btnadd')
+		$('.geci').animate({height:0},1000)
+		}
+})
+
+
+var myAudio=document.getElementById('music'), playing = true;
+$(".musicIcon").click(function(){
+ 	playing = !playing;
+    if (playing == false) {
+        myAudio.pause();
+		$(this).addClass('close')
+    }
+    else {
+        myAudio.play();
+		$(this).removeClass('close')
+    }
+})
+
+	$(window).bind('touchmove scroll',function(e){
+		e.preventDefault();
+		return false;
+	})
+
+
+var timeNum=0
+var inter=null;
+$('.btnrecord').bind('touchstart',function(){
+	$('.btnscale').addClass('active')
+	inter = setInterval(function(){
+		if(timeNum == 60){
+			clearInterval(inter)
+			}else{
+			timeNum++;
+			TweenMax.to($('.progress'),1,{width:timeNum * 390/60,ease:'linear'})
+			}
+		var numtxt = timeNum<10 ? '0'+timeNum : timeNum
+		$('#timeNum').text(numtxt)	
+		
+	},100)	
+}).bind('touchend',function(){
+	$('.btnscale').removeClass('active')
+	clearInterval(inter)
+	if(timeNum<=2){
+		$('.bgblack,.alertpop').show()
+		timeNum=0
+		$('#timeNum').text('00')
+		$('.progress').width(0)
+	}else{
+		
+	}	
+})
+	
+	
+$('#bofang').click(function(){
+	if($(this).hasClass('btnpause')){
+		$(this).removeClass('btnpause').addClass('btnplay')	
+	}else{
+		$(this).removeClass('btnplay').addClass('btnpause')
+		}
+})	
+$('#playbtn').click(function(){
+	if($(this).hasClass('play')){
+		$(this).removeClass('play').addClass('pause')	
+	}else{
+		$(this).removeClass('pause').addClass('play')
+		}
+})	
+
+function sharepop(){
+	$('.bgblack,.sharepop').show().on('click',function(){
+		$('.bgblack,.sharepop').hide()
+		});
+}
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?605e06093f1ca31a337515854f9ce37b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>
