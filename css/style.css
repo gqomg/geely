@@ -1,4 +1,5 @@
 *{ margin:0; padding:0;outline:0 none !important; blr:expression(this.onFocus=this.blur());}
+		
 .none{ display:none;}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
 .clearfix:after {visibility: hidden;display:block;font-size:0;content:"";clear:both;height: 0;}
@@ -16,6 +17,7 @@ body{touch-action: none;}
 .clound2{ left:80px; top:75px; -webkit-animation: fd 2.2s infinite linear;  -webkit-animation-delay:0.2s;}
 .clound3{ left:471px; top:63px; -webkit-animation: fd 2.2s infinite linear;  -webkit-animation-delay:0.4s;}
 
+.i_active{-webkit-animation: fd 2.2s infinite linear; }
 @-webkit-keyframes fd {
 	0%   {-webkit-transform:translateY(0);}
 	25%  {-webkit-transform:translateY(-6px);}
@@ -24,15 +26,26 @@ body{touch-action: none;}
 	100%  {-webkit-transform:translateY(0px);}
 }
 
+@-webkit-keyframes hd {
+	0%   {-webkit-transform:translateX(0);}
+	25%  {-webkit-transform:translateX(-6px);}
+	50%  {-webkit-transform:translateX(0px);}
+	75%  {-webkit-transform:translateX(6px);}
+	100%  {-webkit-transform:translateX(0px);}
+}
+
+.clound{ position:absolute; left:73px; top:380px; -webkit-animation: fd 1.8s infinite linear;}
+
+
 .btnindex{ position:absolute; left:229px; bottom:40px;}
 .btnrule{ position:absolute; left:544px; bottom:41px;}
 
 #yulu{ background:url(../images/yulu.jpg) no-repeat 0 center;}
 .yulubg{ position:absolute; width:640px; height:834px; left:0; background:url(../images/yulubg.png) no-repeat 0 0;}
-.yulu{ position:absolute; height:516px; width:380px; left:144px; top:141px; list-style-type:none;}
-.yulu li{ height:258px; position:relative; color:#187ff7; line-height:1.6; font-size:22px;}
+.yulu{ position:absolute; height:516px; width:380px; left:84px; top:0px; list-style-type:none;}
+.yulu li{ height:250px; margin-bottom:8px; position:relative; color:#187ff7; line-height:1.6; border-bottom:#187ff7 1px dashed; font-size:22px;}
 .yulu li span{ position:absolute; left:-35px; top:-8px; font-size:30px;}
-.yulu li .cur{ position:absolute; width:546px; height:260px; background:url(../images/cur.png) no-repeat 0 0; left:-84px; top:-15px;}
+.yulu li .cur{ position:absolute; width:546px; height:260px; background:url(../images/cur.png) no-repeat 0 0; left:-83px; top:-15px;}
 .yuluarr{ position:absolute; width:107px; height:99px; left:270px; top:680px; background:url(../images/yuluarr.png) no-repeat 0 0; }
 
 .bgblack{ position:absolute; width:640px; left:0; top:0; z-index:9; background-color:#000; opacity:0.6;}
@@ -71,13 +84,13 @@ body{touch-action: none;}
 .btnsub{left:455px; background:url(../images/btnaction.png) no-repeat right 0;}
 .btnpause{left:277px; background:url(../images/btnaction2.png) no-repeat -187px 0;}
 
-.i_1,.i_2,.i_3,.i_4,.i_5,.i_6{ position:absolute; display:block;}
+.i_1,.i_2,.i_3,.i_4,.i_5,.i_6{ position:absolute; display:block; -webkit-transform:scale(0.1); opacity:0;}
 .i_1{ left:311px; top:425px;}
-.i_2{ left:188px; top:447px;}
-.i_3{ left:117px; top:464px;}
-.i_4{ left:246px; top:474px;}
-.i_5{ left:223px; top:570px;}
-.i_6{ left:288px; top:525px;}
+.i_2{ left:188px; top:447px; -webkit-animation-delay:0.2s;}
+.i_3{ left:117px; top:464px;-webkit-animation-delay:0.3s;}
+.i_4{ left:246px; top:474px;-webkit-animation-delay:0.4s;}
+.i_5{ left:223px; top:570px;-webkit-animation-delay:0.5s;}
+.i_6{ left:288px; top:525px;-webkit-animation-delay:0.6s;}
 
 #result{background:url(../images/result.jpg) no-repeat 0 0;}
 .canote{ position:absolute; width:227px; height:22px; background:url(../images/canote.png) no-repeat 0 0; left:190px; top:779px;}

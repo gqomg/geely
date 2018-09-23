@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <title>为《汽车密码》发声！</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+.btnrecord {
+			-webkit-touch-callout:none;
+			-webkit-user-select:none;
+			-khtml-user-select:none;
+			-moz-user-select:none;
+			-ms-user-select:none;
+			user-select:none;
+		}
+</style>
 <script>
 		var phoneWidth =  parseInt(window.screen.width);
 		var phoneScale = phoneWidth/640;
@@ -42,11 +52,11 @@
 </script>
 </head>
 <body>
-<audio style="height:0; display:none;" id="music" src="bg.mp3" autoplay  preload="auto" ></audio>
+<audio style="height:0; display:none;" id="music" src="bg.mp3" autoplay loop  preload="auto" ></audio>
 
 <div id="wrapper">
 <div id="index" class="page ">
-<img src="images/logo.png" style="position:absolute; left:192px; top:59px;">
+<img src="images/logo.png" style="position:absolute; left:192px; top:35px;">
 <div class="vitch">
 <div class="indextit"></div>
 <div class="indexpic">
@@ -64,10 +74,12 @@
 <div class="btnback" onClick="backyulu()"></div>
 <div class="musicIcon"></div>
 <p style="position:absolute; text-align:center; left:0; width:640px; text-align:center; color:#fff; font-size:30px; top:88px;">录制语录</p>
-<div class="gecipic none"></div>
+<div class="gecipic ">
+<img src="images/yun.png" style="position:absolute; left:443px; top:30px;-webkit-animation: fd 2.2s infinite linear; ">
+</div>
 <div class="gecibox">
 <span id="yuluNum">精彩语录一</span>
-<p class="btnplus btngeci"></p>
+<p class="btnadd btngeci"></p>
     <div class="geci">
     <div style="padding-top:50px;">
     </div>
@@ -77,9 +89,9 @@
 
 
 <div class="progressbar">
-<div style="left:-80px;">00:<span id="timeNum">00</span></div>
+<div style="left:-80px;">00:<span id="timeNumOrder">00</span></div>
 <p class="progress"><span></span></p>
-<div style="right:-80px;">00:60</div>
+<div style="right:-80px;">00:<span id="timeNum">60</span></div>
 </div>
 
 <div class="btnscale"></div>
@@ -102,12 +114,16 @@
 <span class="btnsub" onClick="subgc()"></span>
 </div>
 
-<div id="result" class="page ">
-<img src="images/logo.png" style="position:absolute; left:192px; top:59px;">
+<div id="result" class="page none">
+<img src="images/logo.png" style="position:absolute; left:192px; top:35px;">
 <img  id="headpic">
+<img src="images/clound.png" class="clound">
 <p id="headname"></p>
 <p id="randomNote" style="position:absolute; left:169px; top:677px; width:281px; color:#fff; font-size:24px; text-align:center;"></p>
+<img src="images/yun2.png" style="position:absolute; left:393px; top:578px; -webkit-animation: hd 2.2s infinite linear;">
+<img src="images/yun3.png" style="position:absolute; left:483px; top:641px; -webkit-animation: fd 2.2s infinite linear; -webkit-animation-delay:0.4s;">
 <span class="canote"></span>
+<img id="gimg" style=" position:absolute; width:346px; height:461px; left:140px; top:352px; opacity:0;">
 <div id="playbtn" class="play"></div>
 <a href="index.html" class="btnhome"></a>
 <span class="btnshare" onClick="sharepop()"></span>
@@ -116,26 +132,24 @@
 
 <div id="yulu" class="page none">
 <div class="yulubg">
+<div style="position:absolute; left:58px; top:141px; width:530px; overflow:hidden; height:516px;">
 <ul class="yulu ">
 <li onclick="checkYu(0,this)"><span>①</span>每到关键时刻，李书福总爱反向思考。和当初并购沃尔沃一样，当所有人认为吉利即将出局时，他反倒认为机会来了。<p class="cur none"></p>
 </li>
 <li onclick="checkYu(1,this)"><span>②</span>持有更多股份意味着对方愿意承担更大的投入与风险,这对我们而言是公平的,也说明合作伙伴不是要抛弃这家企业,而是真正想和吉利一同将宝腾路特斯做大,我们要成全合作伙伴。
 <p class="cur none"></p>
 </li>
-</ul>
-<ul class="yulu none">
 <li onclick="checkYu(2,this)"><span>③</span>这或许就是伟大企业家身上的特质：没有章法可循，没有事先思考，灵机一动的判断总会将每一个商业行为升华。
 <p class="cur none"></p>
 </li>
 <li onclick="checkYu(3,this)"><span>④</span>中国的本土职业经理人不同，他们每天都在生命线上挣扎，并逐渐摸索出一套应对跨国车企竞争的方法。  
 <p class="cur none"></p>
 </li>
-</ul>
-<ul class="yulu none">
 <li onclick="checkYu(4,this)"><span>⑤</span>世界汽车工业最后发展方向就是模块化生产。就像小孩搭积木，同样的零部件通过不同的装配与设计，最后生产出不一样的汽车产品。这是汽车行业的一个规律，到那时，汽车制造就相当于电脑DIY一样，大家都可以自己组装，而且这一天不会很遥远。
 <p class="cur none"></p>
 </li>
 </ul>
+</div>
 <div class="yuluarr"></div>
 </div>
 </div>
@@ -158,17 +172,18 @@
 	<a href="javascript:void(0)" onClick="setShareTop('weixin')" style="position:absolute; display:block; width:121px; height:128px; bottom:140px; left:338px;"></a>
 	<span style="position:absolute; display:block; width:640px; height:58px; left:0; bottom:0;" onClick="$('#sharepopya').hide()"></span>
 </div>
-
+<script>
+var userInfo = api.getUserInfo(mode); 
+$('#headpic').attr('src',userInfo.userimg);
+$('#headname').text(userInfo.username); 
+</script>
 <script>
 (function(a){a.fn.touchwipe=function(c){var b={min_move_x:20,min_move_y:20,wipeLeft:function(){},wipeRight:function(){},wipeUp:function(){},wipeDown:function(){},wipe:function(){},wipehold:function(){},preventDefaultEvents:true};if(c){a.extend(b,c)}this.each(function(){var h;var g;var j=false;var i=false;var e;function m(){this.removeEventListener("touchmove",d);h=null;j=false;clearTimeout(e)}function d(q){if(b.preventDefaultEvents){q.preventDefault()}if(j){var n=q.touches[0].pageX;var r=q.touches[0].pageY;var p=h-n;var o=g-r;if(Math.abs(p)>=b.min_move_x){m();if(p>0){b.wipeLeft()}else{b.wipeRight()}}else{if(Math.abs(o)>=b.min_move_y){m();if(o>0){b.wipeUp()}else{b.wipeDown()}}}}}function k(){clearTimeout(e);if(!i&&j){b.wipe()}i=false}function l(){i=true;b.wipehold()}function f(n){if(n.touches.length==1){h=n.touches[0].pageX;g=n.touches[0].pageY;j=true;this.addEventListener("touchmove",d,false);e=setTimeout(l,750)}}if("ontouchstart" in document.documentElement){this.addEventListener("touchstart",f,false);this.addEventListener("touchend",k,false)}});return this};})(jQuery);
 
 window.addEventListener('touchmove', function(e){e.preventDefault()}, { passive: false });
 
-
-var userInfo = api.getUserInfo(mode); 
-$('#headpic').attr('src',userInfo.userimg);
-$('#headname').text(userInfo.username);
 var yl_id = 0, yl_lock=false;
+
 $(".yulubg").touchwipe({
 		wipeUp:function(){
 			if(yl_id == 2 || yl_lock){
@@ -176,9 +191,9 @@ $(".yulubg").touchwipe({
 			}
 			yl_lock = true
 			yl_id++
-			$('.yulu').eq(yl_id).fadeIn(function(){
+			$('.yulu').animate({top:-516*yl_id},function(){
 				yl_lock = false
-				}).siblings('.yulu').fadeOut()
+				})
 		},
 		wipeDown:function(){
 			if(yl_id == 0 || yl_lock){
@@ -186,9 +201,9 @@ $(".yulubg").touchwipe({
 			}
 			yl_lock = true
 			yl_id--
-			$('.yulu').eq(yl_id).fadeIn(function(){
+			$('.yulu').animate({top:-516*yl_id},function(){
 				yl_lock = false
-				}).siblings('.yulu').fadeOut()
+				})
 		}
 	})
 var geciArr=['每到关键时刻，<br>李书福总爱反向思考。<br>和当初并购沃尔沃一样，<br>当所有人认为吉利即将出局时，<br>他反倒认为机会来了。',
@@ -204,7 +219,7 @@ function checkYu(i,obj){
 	}
 	checklock=true
 	$(obj).find('.cur').show()
-	$('.btngeci').removeClass('btnadd').addClass('btnplus')
+	$('.btngeci').removeClass('btnplus').addClass('btnadd')
 	$('.geci').css('height',0)
 	$('.geci div').html(geciArr[i])
 	if(i==0){
@@ -218,11 +233,14 @@ function checkYu(i,obj){
 	}else if(i==4){
 		$('#yuluNum').html('精彩语录五')
 	}
-	$('.gecipic').hide();
 	setTimeout(function(){
 		$('#yulu').hide();
 		$('#record').show();
-		$('.geci').animate({height:532},1000)
+		setTimeout(function(){
+			$('.geci').animate({height:532},1000)
+			$('.gecipic').fadeOut(1000)
+			$('.btngeci').removeClass('btnadd').addClass('btnplus')
+			},1000)
 	},500)
 }	
 function backyulu(){
@@ -230,6 +248,7 @@ function backyulu(){
 	$('#yulu').show()
 	$('#record').hide();
 	checklock=false;
+	$('.gecipic').show();
 }
 
 var hh = $(window).height()
@@ -272,14 +291,14 @@ function stopRecord(cb){
 	}
 }
 
-var timeNum=0
+var timeNum=60
 var inter=null;
 var localId;
 $('.btnrecord').bind('touchstart',function(){
 	$('.btnscale').addClass('active')
 	startRecord()
 	inter = setInterval(function(){
-		if(timeNum == 60){
+		if(timeNum == 0){
 			stopRecord(function(res){
 				if(isWx){
 					localId=res.localId
@@ -287,25 +306,45 @@ $('.btnrecord').bind('touchstart',function(){
 					localId=res;
 					}
 				$('#record').hide()
-				$('#success').show()	
+				$('#success').show()
+				setTimeout(function(){
+					TweenMax.to($('.i_1'),1,{scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_1').addClass('i_active')
+						}})	
+					TweenMax.to($('.i_2'),1,{delay:0.2,scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_2').addClass('i_active')
+						}})	
+					TweenMax.to($('.i_3'),1,{delay:0.4,scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_3').addClass('i_active')
+						}})	
+					TweenMax.to($('.i_4'),1,{delay:0.6,scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_4').addClass('i_active')
+						}})	
+					TweenMax.to($('.i_5'),1,{delay:0.8,scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_5').addClass('i_active')
+						}})
+				},800)		
 			})
 			clearInterval(inter)
 			}else{
-			timeNum++;
-			TweenMax.to($('.progress'),1,{width:timeNum * 390/60,ease:'linear'})
+			timeNum--;
+			TweenMax.to($('.progress'),1,{width:(60-timeNum) * 390/60,ease:'linear'})
 			}
 		var numtxt = timeNum<10 ? '0'+timeNum : timeNum
+		var numtxt_order = (60-timeNum)<10 ? '0'+(60-timeNum) : (60-timeNum)
 		$('#timeNum').text(numtxt)	
-	},100)	
+		$('#timeNumOrder').text(numtxt_order)
+	},1000)	
 }).bind('touchend',function(){
 	$('.btnscale').removeClass('active')
 	clearInterval(inter)
-	if(timeNum<=2){
+	if(timeNum>=58){
 		localId='';
 		stopRecord(function(){
 			$('.bgblack,.alertpop').show()
-			timeNum=0
-			$('#timeNum').text('00')
+			timeNum=60
+			$('#timeNum').text('60')
+			$('#timeNumOrder').text('00')
 			$('.progress').width(0)
 		})
 	}else{
@@ -316,9 +355,23 @@ $('.btnrecord').bind('touchstart',function(){
 				localId=res;
 				}
 			clearInterval(inter)
-			timeNum=0
-			$('#timeNum').text('00')
-			$('.progress').width(0)	
+			setTimeout(function(){
+				TweenMax.to($('.i_1'),1,{scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_1').addClass('i_active')
+						}})	
+					TweenMax.to($('.i_2'),1,{delay:0.2,scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_2').addClass('i_active')
+						}})	
+					TweenMax.to($('.i_3'),1,{delay:0.4,scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_3').addClass('i_active')
+						}})	
+					TweenMax.to($('.i_4'),1,{delay:0.6,scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_4').addClass('i_active')
+						}})	
+					TweenMax.to($('.i_5'),1,{delay:0.8,scale:1,opacity:1,ease:Elastic.easeOut,onComplete:function(){
+						$('.i_5').addClass('i_active')
+						}})
+				},800)	
 			$('#record').hide()
 			$('#success').show()	
 		})
@@ -359,40 +412,57 @@ function endRecord(cb){
 	}
 }	
 	
+var isbgm=false	
 $('#bofang').click(function(){
 	if($(this).hasClass('btnpause')){
 		$(this).removeClass('btnpause').addClass('btnplay')	
 		pauseRecord()
 	}else{
 		//播放
-		var isbgm=false
 		if(playing){
 			myAudio.pause();
 			$('.musicIcon').addClass('close')
 			playing = !playing;
 			isbgm=true
 		}
+		$(this).removeClass('btnplay').addClass('btnpause')
 		playRecord()
 		endRecord(function(){
+			$('#bofang').removeClass('btnpause').addClass('btnplay')
+			$('#playbtn').removeClass('pause').addClass('play')	
 			if(isbgm){
 				myAudio.play();
 				$('.musicIcon').removeClass('close')
 				playing = !playing;
 			}
-		})
-		$(this).removeClass('btnplay').addClass('btnpause')
+		})		
 		}
 })
+
+
+		
+		
 
 function backRecord(){
 	$('#success').hide()
 	$('#record').show();
-	
+	timeNum=60
+	$('#timeNum').text('60')
+	$('#timeNumOrder').text('00')
+	$('.progress').width(0)	
+	TweenMax.set($('.i_1'),{scale:0.1,opacity:0})	
+	TweenMax.set($('.i_2'),{scale:0.1,opacity:0})	
+	TweenMax.set($('.i_3'),{scale:0.1,opacity:0})	
+	TweenMax.set($('.i_4'),{scale:0.1,opacity:0})	
+	TweenMax.set($('.i_5'),{scale:0.1,opacity:0})
+	$('.i_1,.i_2,.i_3,.i_4,.i_5').removeClass('i_active')
 }	
 var worknote = ['为民族企业的国际范儿打call！','大视野有大智慧，听听我最喜欢的金句！','为远见鼓掌，为情怀发声']
 
 var dataId;
 function subgc(){
+	pauseRecord()
+	$('#bofang').removeClass('btnpause').addClass('btnplay')	
 	if(isWx){
 		 wx.uploadVoice({
             localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
@@ -403,6 +473,10 @@ function subgc(){
 					$('#result').show()
 					$('#success').hide()
 					$('#randomNote').text(worknote[Math.floor(Math.random()*3)])
+					
+					var res = api.generateImg_wx(data.Id)
+					$('#gimg').attr('src',res.gimg)
+					
 					DATAForWeixin.setTimeLine({
 						title: '站住！把你的声音交出来！',
 						imgUrl: "http://geely.nan3.net/images/share.jpg",
@@ -432,6 +506,8 @@ function subgc(){
 				$('#result').show()
 				$('#success').hide()
 				dataId=jsonData.Id
+				var res = api.generateImg_ya(dataId)
+				$('#gimg').attr('src',res.gimg)
 			}
 		})
 	}
@@ -483,11 +559,30 @@ function setShareTop(obj) {
 
 $('#playbtn').click(function(){
 	if($(this).hasClass('play')){
+		if(playing){
+			myAudio.pause();
+			$('.musicIcon').addClass('close')
+			playing = !playing;
+			isbgm=true
+		}
 		$(this).removeClass('play').addClass('pause')	
+		playRecord()
+		endRecord(function(){
+			$('#bofang').removeClass('btnpause').addClass('btnplay')
+			$('#playbtn').removeClass('pause').addClass('play')	
+			if(isbgm){
+				myAudio.play();
+				$('.musicIcon').removeClass('close')
+				playing = !playing;
+			}
+		})
 	}else{
 		$(this).removeClass('pause').addClass('play')
+		pauseRecord()
 		}
 })	
+
+
 
 function sharepop(){
 	if(isWx){
@@ -512,6 +607,11 @@ $(".musicIcon").click(function(){
 		$(this).removeClass('close')
     }
 })
+
+$('.btnrecord').bind('contextmenu', function(e) {
+		e.preventDefault();
+	})
+	
 if(isWx){
 	var myAudio=document.getElementById('music')
 document.addEventListener('DOMContentLoaded', function () {

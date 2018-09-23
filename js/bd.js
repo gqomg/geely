@@ -95,19 +95,19 @@ var api = (function () {
         },
         /* 
        喜马拉雅 - 生成图片
-       imgId:图片Id
+        id:生成二维码的ID
        @return Object
       */
-        generateImg_ya: function (imgId) {
-            if (IsNull(imgId)) {
-                alert("请提供图片序号！");
+        generateImg_ya: function (id) {
+            if (IsNull(id)) {
+                alert("请提供ID！");
                 return;
             }
             var result = {};
             $.ajax({
                 url: "/API/B_GenerateImg.ashx",
                 type: "POST",
-                data: { mode: 1, imgId: imgId },
+                data: { mode:1, id: id },
                 dataType: "json",
                 async: false,
                 success: function (res) {
@@ -129,19 +129,19 @@ var api = (function () {
         },
         /* 
          微信 - 生成图片
-         imgId:图片Id
+         id:生成二维码的ID
          @return Object
         */
-        generateImg_wx: function (imgId) {
-            if (IsNull(imgId)) {
-                alert("请提供图片序号！");
+        generateImg_wx: function (id) {
+            if (IsNull(id)) {
+                alert("请提供ID！");
                 return;
             }
             var result = {};
             $.ajax({
                 url: "/API/B_GenerateImg.ashx",
                 type: "POST",
-                data: { mode: 2, imgId: imgId },
+                data: { mode: 2, id: id },
                 dataType: "json",
                 async: false,
                 success: function (res) {
